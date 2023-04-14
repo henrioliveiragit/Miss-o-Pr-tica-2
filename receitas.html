@@ -14,7 +14,7 @@
     <div class="container-fluid bg-warning">
         <div class="pnlCatalogo flex-warp">
             <div id="ingredientes">
-                
+
             </div>
         </div>
     </div>
@@ -59,19 +59,30 @@
                 ul.appendChild(node)
                 document.getElementById("ingredientes").appendChild(ul);
             });
-        
-
-  
 
 
+
+
+
+
+
+        }
+
+        getCard = (data) => {
+            var i = Object.values(data)
+            i.forEach(element => {
+                const card = document.createElement('div')
+                card.classList.add("card")
+                const cardimgtop = document.createElement("img")
+                cardimgtop.classList.add("card-img-top")
+                cardimgtop.src = element.imagem
+                card.appendChild(cardimgtop)
+                document.getElementById("ingredientes").appendChild(card)
+            })
 
 
         }
-
-        getCard = (receita) => {
-
-        }
-        getListaIngredientes(data)
+        getCard(data)
 
         preencheCatalogo = () => {
 
@@ -86,7 +97,17 @@
 </html>
 
 <style>
-    ul{
+    ul {
         background-color: green;
+    }
+
+    .card {
+        width: 250px;
+    }
+
+    #ingredientes{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 </style>
